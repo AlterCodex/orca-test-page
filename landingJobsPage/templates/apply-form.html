@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load i18n %}
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'landingJobsPage/css/normalize.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'landingJobsPage/css//webflow.css'%}" rel="stylesheet" type="text/css">
+    <link href="{% static 'landingJobsPage/css/commons.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<form method="POST" action=".">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+
+    <div class="fieldWrapper" >
+        {{ form.name.errors }}
+        <label for="{{ form.user_name.id_for_label }}" class="field-label light" >{{ form.user_name.label }} </label>
+        <input type="text" class="dark-field w-input"
+               maxlength="256" name="user_name" data-name="user_name"
+               placeholder="" id="{{ form.user_name.id_for_input }}" required="required" />
+    </div>
+
+    <div class="fieldWrapper">
+        {{ form.mail.errors }}
+        <label for="{{ form.mail.id_for_label }}" class="field-label light">{{ form.mail.label }}</label>
+          <input type="email" class="dark-field w-input"
+               maxlength="256" name="mail" data-name="Email"
+                 placeholder="" id="{{ form.mail.id_for_input }}" required="required"/>
+    </div>
+    <div class="fieldWrapper">
+        {{ form.sender.errors }}
+        <label for="{{ form.web_page.id_for_label }}" class="field-label light" >{{ form.web_page.label }}</label>
+        <input type="url" class="dark-field  w-input"
+               maxlength="256" name="web_page" data-name="Linkedin"
+               placeholder="" id="{{ form.web_page.id_for_input }}" required="required"/>
+    </div>
+    <div class="fieldWrapper">
+        <div class="horizontal-alignment container">
+            {{ form.captcha.errors }}
+            <div class="captcha_box">
+                <label for="{{ form.captcha.id_for_label }}"  class="field-label light">{{ form.captcha.label }}</label>
+                {{ form.captcha }}
+            </div>
+            <button type="submit" class="apply_button" >Submit</button>
+        </div>
+    </div>
+
+</form>
+</body>
+</html>
