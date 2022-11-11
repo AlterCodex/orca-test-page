@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
     path('index.html', views.index, name='index_2'),
-    path('carers.html', views.carers),
+    path('careers.html', views.carers),
     path('jobs/<int:job_id>/', views.jobDetail),
     path('/captcha', include("captcha.urls"))
     ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

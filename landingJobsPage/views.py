@@ -15,7 +15,7 @@ def index(request):
 
 def carers(request):
     jobs_post = list(JobPosting.objects.all())
-    template = loader.get_template('landingJobsPage/carers.html')
+    template = loader.get_template('landingJobsPage/careers.html')
     context = {
         'jobs_post': jobs_post,
     }
